@@ -42,7 +42,43 @@ $(document).ready(function () {
     while (index >= 0) {
       var tweet = streams.home[index];
       var $tweet = $('<div class="tweet"></div>');
-      $tweet.text('@' + tweet.user + ': ' + tweet.message);
+      var $tweetContainer = $('<div class="tweet-container"></div>');
+      var $message = $('<p class="message"></p>');
+      var $username = $('<span class="username"></span>');
+      var $profilePhoto = $('<img class="profile-photo">');
+      var $timeStamp = $('<span class="timestamp"></span>');
+      var $iconContainer = $('<div class="icons"></div>');
+      var $iconComment = $('<img class="icon">');
+      var $iconRetweet = $('<img class="icon">');
+      var $iconLike = $('<img class="icon">');
+      var $iconShare = $('<img class="icon">');
+      $profilePhoto.attr("src", tweet.profilePhotoURL);
+      $message.text(tweet.message);
+      $username.text('@' + tweet.user);
+      $timeStamp.text(tweet.created_at);
+
+      $iconComment.attr("src", 'assets/icons/placeholder.png');
+      $iconRetweet.attr("src", './assets/icons/placeholder.png');
+      $iconLike.attr("src", './assets/icons/placeholder.png');
+      $iconShare.attr("src", './assets/icons/placeholder.png');
+
+
+      $message.appendTo($tweetContainer)
+      $username.appendTo($tweetContainer);
+      $profilePhoto.appendTo($tweetContainer);
+      $timeStamp.appendTo($tweetContainer);
+
+      $iconContainer.appendTo($tweetContainer);
+      $iconComment.appendTo($iconContainer);
+      $iconRetweet.appendTo($iconContainer);
+      $iconLike.appendTo($iconContainer);
+      $iconShare.appendTo($iconContainer);
+
+      $tweetContainer.appendTo($tweet);
+
+
+
+      // $tweet.text('@' + tweet.user + ': ' + tweet.message);
       $tweet.appendTo($feed);
       index -= 1;
     }
