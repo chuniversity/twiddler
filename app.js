@@ -27,6 +27,7 @@ $(document).ready(function () {
   $subtitle.on('click', handleTitleClick);
   $updateBtn.on("click", handleBtnClick);
 
+
   // Append new HTML elements to the DOM
 
   $title.appendTo($app);
@@ -48,19 +49,15 @@ $(document).ready(function () {
       var $profilePhoto = $('<img class="profile-photo">');
       var $timeStamp = $('<span class="timestamp"></span>');
       var $iconContainer = $('<div class="icons"></div>');
-      var $iconComment = $('<img class="icon">');
-      var $iconRetweet = $('<img class="icon">');
-      var $iconLike = $('<img class="icon">');
-      var $iconShare = $('<img class="icon">');
+      var $iconComment = $('<i class="icon comment far fa-comment">');
+      var $iconRetweet = $('<i class="icon retweet far fa-share-square"></i>');
+      var $iconLike = $('<i class="icon like far fa-thumbs-up">');
+      var $iconShare = $('<i class="icon share far fa-heart">');
       $profilePhoto.attr("src", tweet.profilePhotoURL);
       $message.text(tweet.message);
       $username.text('@' + tweet.user);
-      $timeStamp.text(tweet.created_at);
+      $timeStamp.text(jQuery.timeago(tweet.created_at));
 
-      $iconComment.attr("src", 'assets/icons/placeholder.png');
-      $iconRetweet.attr("src", './assets/icons/placeholder.png');
-      $iconLike.attr("src", './assets/icons/placeholder.png');
-      $iconShare.attr("src", './assets/icons/placeholder.png');
 
 
       $message.appendTo($tweetContainer)
@@ -78,6 +75,7 @@ $(document).ready(function () {
 
 
 
+
       // $tweet.text('@' + tweet.user + ': ' + tweet.message);
       $tweet.appendTo($feed);
       index -= 1;
@@ -85,5 +83,13 @@ $(document).ready(function () {
   };
 
   renderFeed()
+
+
+  //feed events
+
+  $('.icon').hover(
+    function () { $(this).addClass('fas') },
+    function () { $(this).removeClass('fas') }
+  )
 
 });
