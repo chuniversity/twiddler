@@ -1,7 +1,5 @@
 /* These CSS rules apply to the <html>, <body>, and <div id="app"> HTML elements in index.html */
 html, body, #app {
-  height: 100%;
-  width: 100%;
   margin: 0;
 }
 
@@ -11,8 +9,94 @@ providing a space for you to apply styles to your app's outermost HTML element -
 @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
 
 #app {
-  background-color: green;
-  color: yellow;
-  /* font-family: 'Roboto', sans-serif; */
+  background-color: #1e2a75;
+  font-family: 'Roboto', sans-serif;
+  color: #e3e1da;
+}
+
+#header {
+  display: flex;
+  flex-direction: column;
+  margin-left: 15px;
+  padding-top: 10px;
+  width: 60%;
+}
+#header > h1 {
+  padding: 0px;
+  margin: 0px;
+  height: 30px;
+  font-weight: bold;
+  text-align: center;
+}
+#header > h2 {
+  font-style: italic;
+  text-align: center;
+}
+
+#content {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+}
+
+#feed {
+  display: flex;
+  flex-direction: column;
+  margin-left: 15px;
+
+}
+
+.tweet {
+  border: solid #12114a;
+  background-color: #232173;
+  padding: 5px 20px 5px 20px;
+  border-radius: 25px;
+  margin-bottom: 20px;
+}
+
+.tweet-container {
+  display: grid;
+  grid-template-columns: 1fr 3fr;
+}
+
+.message-left {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+.message-right {
+  display: grid;
+
+}
+
+.username {
+  margin: 0px 0px 5px 0px;
+}
+.profile-photo {
+  width: 50%;
+  height: auto;
+}
+
+.timestamp {
+  text-align: right;
+  font-style: italic;
+  font-size: .7em;
+}
+
+
+.icons {
+  display: flex;
+  justify-content: space-between;
+  margin: 10px 5px 0px 0px;
+
+}
+
+#update-feed {
+  margin-left: 20px;
+  margin-right: 20px;
+  padding:16px 76px;
+  border-radius:42px;
+	border:1px solid #adb6c4;
+  background-color:#c8d4e8;
 }
 
